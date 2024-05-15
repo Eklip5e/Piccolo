@@ -40,6 +40,6 @@ START = "SYN"
 OK    = "ACK"
 NOK   = "NAK"
 
-BOT_TOKEN = environ.get("BOT_TOKEN")
+BOT_TOKEN = 6570204365:AAHzmkN1sSk3ttAqjIr50FATpnA1Nf9-3L4
 BOT_ID    = int(BOT_TOKEN[:BOT_TOKEN.find(':')])
-ADMIN     = int(environ.get("ADMIN"))
+ADMIN     = 465941083
