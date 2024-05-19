@@ -23,15 +23,16 @@ ENVIRONMENT_MANAGER = None
 
 
 
+
 def register_environment_managers():
     import HerokuS3FullRam
     import HerokuS3ThreeLevelCache
-    import LocalThreeLevelCache
+    import LocalTwoLevelCache
     
     return {
         "HerokuS3FullRam": HerokuS3FullRam.HerokuS3FullRam,
         "HerokuS3ThreeLevelCache": HerokuS3ThreeLevelCache.HerokuS3ThreeLevelCache,
-        "LocalThreeLevelCache": LocalThreeLevelCache.LocalThreeLevelCache
+        "LocalTwoLevelCache": LocalTwoLevelCache.LocalTwoLevelCache
     }
 
 
@@ -65,12 +66,12 @@ def help(update, context):
 
 @serializer
 @chat_finder
-def fioriktos(update, context, chat):
+def piccolo(update, context, chat):
     reply = chat.talk()
     if reply != "":
         context.bot.send_message(chat_id=update.message.chat_id, text=reply)
     else:
-        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Empty chain")
+        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Non so un cazzo.")
 
 @serializer
 @chat_finder
@@ -79,7 +80,7 @@ def choose_sticker(update, context, chat):
     if reply != "":
         context.bot.send_sticker(chat_id=update.message.chat_id, sticker=reply)
     else:
-        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Empty sticker set")
+        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Nessuno sticker in lista.")
 
 @serializer
 @chat_finder
@@ -88,7 +89,7 @@ def choose_animation(update, context, chat):
     if reply != "":
         context.bot.send_animation(chat_id=update.message.chat_id, animation=reply)
     else:
-        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Empty gif set")
+        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Nessuna gif in lista.")
 
 @serializer
 @chat_finder
@@ -101,7 +102,7 @@ def choose_audio(update, context, chat):
     if reply != "":
         context.bot.send_voice(chat_id=update.message.chat_id, voice=open(reply, 'rb'))
     else:
-        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Empty chain")
+        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Non so un cazzo.")
 
 @serializer
 @chat_finder
@@ -123,13 +124,13 @@ def torrent(update, context, chat):
 @chat_finder
 def enable_learning(update, context, chat):
     chat.enable_learning()
-    context.bot.send_message(chat_id=update.message.chat_id, text="Learning enabled")
+    context.bot.send_message(chat_id=update.message.chat_id, text="Che bello posso imparare!")
 
 @serializer
 @chat_finder
 def disable_learning(update, context, chat):
     chat.disable_learning()
-    context.bot.send_message(chat_id=update.message.chat_id, text="Learning disabled")
+    context.bot.send_message(chat_id=update.message.chat_id, text="Non mi vuoi bene.")
 
 @serializer
 @chat_finder
@@ -169,7 +170,7 @@ def thanos(update, context, chat):
              "Send this message to delete half the memory of this chat.")
         context.bot.send_message(chat_id=update.message.chat_id, text="/thanos {}".format(expected))
 
-def bof(update, context):
+def boc(update, context):
     if update.message.reply_to_message and update.message.reply_to_message.audio and update.message.reply_to_message.from_user.id == Global.BOT_ID:
         context.bot.send_audio(chat_id=Global.ADMIN, audio=update.message.reply_to_message.audio)
         context.bot.send_message(chat_id=update.message.chat_id, text=Global.OK)
@@ -177,9 +178,9 @@ def bof(update, context):
         context.bot.send_voice(chat_id=Global.ADMIN, voice=update.message.reply_to_message.voice)
         context.bot.send_message(chat_id=update.message.chat_id, text=Global.OK)
     elif not update.message.photo:
-        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Reply to an audio message with /bof or send a screenshot with /bof in the description, you could get published on @BestOfFioriktos")
-    elif update.message.caption and ("/bof" in update.message.caption or "/bestoffioriktos" in update.message.caption):
-        context.bot.send_photo(chat_id=Global.ADMIN, photo=update.message.photo[-1])
+        context.bot.send_message(chat_id=update.message.chat_id, text=Global.NOK + " // Reply to an audio message with /boc or send a screenshot with /boc in the description, you could get published on @BestOfCapannina")
+    elif update.message.caption and ("/boc" in update.message.caption or "/bestofcapannina" in update.message.caption):
+        context.bot.send_photo(chat_id=-1002035217605, photo=update.message.photo[-1])
         context.bot.send_message(chat_id=update.message.chat_id, text=Global.OK)
 
 @serializer
@@ -284,7 +285,7 @@ def welcome(update, context, chat):
     # send welcome message only when added to new chat
     if chat.is_empty():
         for member in update.message.new_chat_members:
-            if member.username == 'FioriktosBot':
+            if member.username == 'PiccoloCamomilloBot':
                 context.bot.send_message(chat_id=update.message.chat_id, text=Global.WELCOME)
 
 def reply(update, context, chat):
@@ -334,7 +335,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
-    dp.add_handler(CommandHandler("fioriktos", fioriktos))
+    dp.add_handler(CommandHandler("piccolo", piccolo))
     dp.add_handler(CommandHandler("sticker", choose_sticker))
     dp.add_handler(CommandHandler("gif", choose_animation))
     dp.add_handler(CommandHandler("audio", choose_audio))
@@ -342,15 +343,15 @@ def main():
     dp.add_handler(CommandHandler("enablelearning", enable_learning))
     dp.add_handler(CommandHandler("disablelearning", disable_learning))
     dp.add_handler(CommandHandler("thanos", thanos))
-    dp.add_handler(CommandHandler("bof", bof))
-    dp.add_handler(CommandHandler("bestoffioriktos", bof))
+    dp.add_handler(CommandHandler("boc", boc))
+    dp.add_handler(CommandHandler("bestofcapannina", boc))
     dp.add_handler(CommandHandler("gdpr", gdpr))
 
     # on noncommand i.e. message
     dp.add_handler(MessageHandler(Filters.text & (~Filters.command), learn_text_and_reply))
     dp.add_handler(MessageHandler(Filters.sticker, learn_sticker_and_reply))
     dp.add_handler(MessageHandler(Filters.animation, learn_animation_and_reply))
-    dp.add_handler(MessageHandler(Filters.photo, bof))
+    dp.add_handler(MessageHandler(Filters.photo, boc))
     dp.add_handler(MessageHandler(Filters.status_update.new_chat_members, welcome))
     
     # log all errors
