@@ -1,92 +1,101 @@
-# Fioriktos
+# ![_labadessa-19052024-0001](https://github.com/Eklip5e/Piccolo/assets/38536104/1a1ce4a8-7c2e-4a07-bb91-bd0d47d730c3)
 
-This is a Telegram bot which uses Markov chains to learn how to speak from the messages of other users. It can answer with text messages, but also stickers, animations and audio messages. These are the available commands:
+Piccolo è un bot per Telegram, Fork di [Fioriktos](https://github.com/FiorixF1/fioriktos-bot). 
+Utilizza [Markov chains](https://en.wikipedia.org/wiki/Markov_chain) per imparare a parlare, dai messaggi che i vari utenti inviano. 
+Piccolo può rispondere con messaggi di testo, ma anche sticker, gifs ed audio.
+
+Questi sono i comandi che puoi utilizzare:
 ```
-    fioriktos - Talk
-    sticker - Send a sticker
-    gif - Send a gif
-    audio - Send an audio
-    torrent - Automatic replies
-    enablelearning - Enable learning
-    disablelearning - Disable learning
-    thanos - Halve the memory of this chat
-    bof - Best of Fioriktos
-    gdpr - Privacy stuff
+    piccolo - Forzami a parlare
+    sticker - Invio uno sticker
+    gif - Invio una gif
+    audio - Invio un audio
+    torrent - Con uno spazio accanto al comando, ed un numero da 1 a 10, deciderai la frequenza di quanto devo parlare
+    enablelearning - Impara
+    disablelearning - Smetto di imparare
+    thanos - Dimezza tutto quello che so.
+    boc - Best of Capannina
+    gdpr - Robette di privacy :)
 ```
 
-There are a number of extra commands that can be issued through ```/gdpr```, namely:
-* ```/gdpr download``` : Download all the data for the current chat in a text file, so that a user can inspect them.
-* ```/gdpr delete``` : Erase the entire content of the current chat in one shot. Be careful when using this function: the deletion of your data will happen without asking confirmation and is not reversible, so do it wisely.
-* ```/gdpr flag``` : Remove a specific sticker or gif from Fioriktos' memory. Let's say some troll publishes a porn gif in your group. Instead of deleting it, reply to it with ```/gdpr flag```, this way the gif will be removed from the bot's memory and Fioriktos won't publish it again later. If the bot has administrator rights, it will also care about deleting the message from group history. The operation can be undone with ```/gdpr unflag```.
-* ```/gdpr tx``` : If you want to transfer the data stored by Fioriktos from one chat to another, first send this command in the source chat. The bot will answer with a code that must be sent in the target chat to complete the transfer. The code will be available for up to ten minutes (five minutes on average) and it is something like ```/gdpr rx DEADBEEF```.
+Il comando ```/gdpr``` ha un ulteriore ruolo, in quanto gestione del bot:
+* ```/gdpr download``` :  Scarica tutti i dati della chat in cui ti trovi in un file, così che l'utente può leggere le parole imparate dal bot.
 
-Since this bot has access to private messages of Telegram group users, it has been designed with a high focus on openness and transparency to guarantee that private data are not used in an improper way. The simple act of making the source code public is already a great step towards this goal, a step which has not been made by other bots similar to Fioriktos.
+* ```/gdpr delete``` :  Elimina l'intero database della chat in un unica mossa; Utilizza questo comando con parsimonia in quanto l'azione non è reversibile
 
+* ```/gdpr flag``` : Se usato rispondendo ad un determinato sticker o gif, eliminerà quest'ultimo dal database e in futuro, non lo invierà più. Solitamente questo comando può essere usato se c'è uno spam elevato di sticker e gif, come porno o altri generi che potrebbero triggerare i membri;
+* L'azione è reversibile con ```/gdpr unflag```.
+
+* ```/gdpr tx``` :  Se desideri trasferire il database di ciò che ha imparato Piccolo, da una chat ad un'altra, questo comando fa a caso tuo, ti basterà usare questo comando sulla chat "Mittente", il bot risponderà con qualcosa del tipo ```/gdpr rx DEADBEEF```, che dovrai copiare ed incollare sulla chat "Destinatario".
+
+Dato che il bot ha accesso ai messaggi di Telegram delle varie chat con cui interagisce, è stato creato con lo scopo di essere letto, modificato ed avere una completa trasparenza con gli utenti che lo usano.
+Il codice è quindi pubblico, per garantire agli utenti che i dati, di fronte al bot, non verranno mai utilizzati in maniera impropria;
+Cosa che non è paragonabile ad altri bot simili a Fioriktos e Piccolo.
 # FAQ
 
-## Which personal data does Fioriktos store?
+## Chi è Piccolo?
+![9788807550492_quarta jpg 800x800_q75](https://github.com/Eklip5e/Piccolo/assets/38536104/1020a2df-64f8-47e7-96ef-a044f517d68c)
 
-Fioriktos is storing a set of data for each chat it is added in. These data consist of:
+Piccolo è un personaggio fictional, creato nel 25 Giugno 2020 dall'illustratore e graphic designer [Mattia Labadessa](https://www.instagram.com/_labadessa/) , abbiamo imparato a conoscere Piccolo all'interno del libro ["Piccolo!"](https://www.feltrinellieditore.it/opera/piccolo/) e nelle varie storie che Mattia posta, con tanto di sondaggi, che rendono l'interazione col personaggio e l'illustratore più dinamica.
+#### "Non nel senso che sono piccolo, ma proprio perchè mi chiamo Piccolo!"
+
+Attualmente, quest'anno (2024), Mattia ha creato un canale telegram e successivamente, un gruppo, una piccola parte di questi fan si è riunita in separata sede creando un forte legame.
+Dall'esigenza di avere un clone del bot Fioriktos, per rimanere in tema col gruppo che ha fatto sì che nascessero tante amicizie ed amori, nasce il bot Piccolo.
+
+## Quali dati personali conserva Piccolo?
+Piccolo conserva solo un set di dati per ogni chat in cui è stato inserito.
+Il set di dati è il seguente:
 * Chat ID
-* Sent words
-* Sent stickers
-* Sent gifs
+* Un set di parole costruito dai vari messaggi
+* Gli sticker inviati
+* Le gif inviate
 
-It does not store any information about users, such as user ID, username, profile picture et cetera. Keep in mind that Fioriktos is **not** storing the whole messages sent by users (that would be extremely unpleasant), but only the single words composing them. This is obviously needed to implement Markov chains and generate new messages.
+Piccolo non conserva nient'altro delle cose presenti in questa lista, non avrà quindi accesso a cose come l'username, dati personali e foto di profilo degli utenti.
+C'è da mantenere a mente che il bot **non conserverà l'intero messaggio**, (altrimenti renderebbe le cose parecchio disagianti); Ma solo le singole parole che compongono il messaggio, che aiuteranno a rafforzare la catena di Markov.
 
-## Where is Fioriktos deployed?
+## Dove gira Piccolo?
 
-The bot is deployed on Heroku and the learnt models are stored on an Amazon S3 bucket.
+A differenza di Fioriktos, che gira su un servizio di hosting a pagamento - [Heroku](https://www.heroku.com/) - e il database delle cose imparate su [Amazon S3 Bucket](https://aws.amazon.com/it/s3/);
 
-## Are my personal data permanently stored?
+Piccolo è invece hostato su una piccola macchina virtuale, tramite il modello di learning  ```TwoLevelCache ```, in quanto un bot dedito ad essere usato da pochissime persone rispetto bot Fioriktos, con una gestione migliore.
 
-No. When Fioriktos is removed from a group, the relative data will be automatically deleted after 90 days of inactivity, unless the bot is added to the group again.
+## I miei dati verranno conservati permanentemente?
 
-## What is assuring me that you won't read my private messages?
+No, Piccolo ha un countdown di 90 giorni di inattività, dove se in quel periodo non è stato usato o è stato rimosso dal gruppo, dopo quel periodo, eliminerà l'intero database;
+A meno che non venga riaggiunto in tempo prima di questo periodo.
 
-As I said, Fioriktos is not storing the whole messages, but only the words composing them, so it is not technically possible to recover the original messages. Anyway, I would like to remark that, whenever you use a Telegram bot which has access to all messages you send, you are accepting the risk that the bot owner will use your data unfairly. If you use a bot which is closed source and you do not know where it is deployed, how it works, what data it stores and even who are the people managing it, nothing can guarantee that the unknown developers are not storing all your conversations in some hidden server on the Pacific Islands or worse they are collecting your pictures and videos to feed some deepfake algorithm. Every bot which both implements Markov chains and is closed source could potentially do this without our knowledge nor permission (I am thinking about a very famous one). With Fioriktos, you know exactly how it works (see the code ;) ), where it is deployed, what it stores and who is developing it (hello there!). In this scenario, I feel much more secure.
+## Cosa mi assicura che tu non vada a leggere i miei messaggi privati?
 
-## Can I clone this project and make my custom version of Fioriktos?
+Come già detto, Piccolo, come Fioriktos, non conserverà l'intero messaggio, ma lo scomporrà ed utilizzerà solo le singole parole che lo compongono, quindi non è tecnicamente possibile poter riassemblare a ritroso il messaggio.
+Comunque, ci tengo a dire che, in qualsiasi modo decidessi di usare altri bot, non per forza Fioriktos e simili, devi essere consapevole di star correndo il rischio che il bot possa usare i dati scorrettamente, in quanto datogli l'accesso da **TE** e nessun altro;
+Soprattutto in parecchi casi dove il bot è closed-source, ovvero il codice non è accessibile agli altri e che quindi, non potete mai sapere dove tutti i dati possano andare a finire a meno che non siate voi ad aver programmato il bot e conoscete il suo funzionamento.
+Nessuno può garantirvi al 100% che uno sviluppatore di un programma o di un bot closed-source, possa improvvisamente leggere i vostri messaggi e i vostri dati, o che questi ultimi possano essere hostati in paesi dove è lecito farlo, anche senza il vostro consenso. 
+Visto che questo progetto è open-source, posso solo che dirvi che nei vostri panni posso solo sentirmi più al sicuro.
+Se invece, preferite avere un vostro clone, così da poter avere la certezza che i vostri dati sono solo ed unicamente visibili da voi, ecco a voi la risposta alla prossima domanda:
 
-Of course you can, and I even encourage people to do so. If you want to create a copy of Fioriktos, one possibility is to replicate its exact working environment. To do this, you need:
-* A Telegram account
-* A GitHub account
-* A Heroku account
-* An Amazon Web Services account
+## Posso clonare Piccolo?
 
-Then you have to follow these steps:
-1. In **Telegram**, create your new bot through [@BotFather](https://t.me/botfather). You can freely choose its name and profile picture, while as a list of commands, copy-paste the one at the top of this page.
-2. In **GitHub**, create a new repository by forking this project.
-3. In **Amazon Web Services**, go to *Simple Storage Service* (S3) and create a new bucket. NOTE: this is easier said than done. Creating and configuring an account on AWS is not straightforward. If you need more details on how to do it, look for a video tutorial on YouTube by some smart Indian guy. They are better than official documentation. At the end of this process, you will have many pieces of information: the *AWS Access Key*, the *AWS Secret Access Key*, the region where you created the bucket and the bucket name. You need all these data in the next step.
-4. In **Heroku**, create a new project and go to the *Settings* tab. Here you can manage *Config Vars*, which are nothing else than a list of key-value pairs. For the correct working of your bot, you need to set these config vars:
-   ```BOT_TOKEN``` = the token of your Telegram bot (you can get it from [@BotFather](https://t.me/botfather))  
-   ```ADMIN``` = your Telegram user ID (you can get it from [@userinfobot](https://t.me/userinfobot))  
-   ```HEROKU_APP_NAME``` = the name of your Heroku project  
-   ```AWS_ACCESS_KEY_ID``` = your AWS Access Key  
-   ```AWS_SECRET_ACCESS_KEY``` = your AWS Secret Key  
-   ```REGION_NAME``` = the AWS region where you created your bucket  
-   ```S3_BUCKET_NAME``` = the name of the bucket
+In questo caso, Piccolo come già accennato prima, è già un clone del [bot ufficiale](https://github.com/FiorixF1/fioriktos-bot).
+Se avete quindi intenzione di creare un bot personale, come Piccolo, vi consiglio vivamente di leggere [la guida](https://github.com/FiorixF1/fioriktos-bot?tab=readme-ov-file#can-i-clone-this-project-and-make-my-custom-version-of-fioriktos) presente sulla repository originale.
 
-Then, under the *Deploy* tab, you can connect the GitHub repository of your bot to Heroku and deploy it, making it effectively operational on the web. By clicking on *More* > *View logs*, you can watch the logs generated by your application and check if everything is alright or if there are some errors.
+## Supporta me e il creatore originale!
 
-Another possibility, useful for development and testing, is running the bot locally on your computer. In this case, you don't need an account on AWS or Heroku. Just make sure you have installed Python 3.10.13 and the dependencies listed in ```requirements.txt```, set the ```BOT_TOKEN``` and ```ADMIN``` environment variables, then launch ```python FioriktosBot.py LocalThreeLevelCache``` on terminal and enjoy!
-
-Note that Fioriktos takes a command-line parameter when it is launched, that is the so called "memory manager". It's a class that describes how and where data shall be collected. Currently there are three memory managers implemented:
-* *Heroku3ThreeLevelCache*: this is the manager in use for the official release of Fioriktos. It is based on Heroku as hosting service and S3 for storing data, while active chats are manage through a three level cache strategy (RAM + local disk + remote network) to minimize the usage of RAM. In this manager, each chat has its own text file with data and it is loaded into RAM only when requested.
-* *HerokuS3FullRam*: based on Heroku and S3 like the previous manager, but there is no multilevel cache for storing active chats. All existing chats are stored in a single giant file that is loaded into RAM.
-* *LocalThreeLevelCache*: it's the manager to be used for deploying locally. It uses the multilevel cache for managing active chats, but does not communicate with AWS and is not integrated in the Heroku platform. It works out of the box on a common PC.
-
-As you can imagine, custom managers for different hosting services or databases can be created by anyone to better fit their needs. You just need to start from the existing ones and reimplement their functions. Then, in ```FioriktosBot.py```, inside function ```register_environment_managers```, add your own custom manager. Consider also that each memory manager and the ```Global.py``` source file also contain a set of constant values (numbers and strings) that can be changed easily for common customization.
-
-At this point, you have created a working copy of Fioriktos. Now you can make all changes you desire to your GitHub fork and deploy those changes to Heroku or anywhere else at any time. Have fun!
-
-## Support the project
-
-The bot unfortunately does not run for free. Amazon S3 must be paid, and since November 2022 Heroku has removed the free plan from their products, hence it must be paid as well. As a result, a simplistic bot created for fun has become too much expensive for me. For this reason, I opened an account on *Buy me a Coffee* so that you can contribute to keep the bot running. The objective is to keep a fund of 15 € per month, which is a lot for a single person, but they become a little quantity if divided among many people. You can contribute through single donations or by subscribing to one of the following tiers:
+Sfortunatamente dopo una serie di cambiamenti sulla piattaforma di Heroku, circa Novembre 2022, non è più possibile hostare gratuitamente i vostri progetti, ed Amazon S3 è sempre stato un servizio a pagamento molto salato. 
+Il bot quindi, per restare in vita dev'essere pur finanziato in qualche modo, soprattutto in un progetto aperto a tutti come questo dove il suo funzionamento non è retribuito.
+Per questo motivo, vi consiglio di fare una donazione al creatore del bot sul sito _**Buy me a Coffee**_.
+Anche una singola donazione può aiutare, in quanto le spese per mantenere il bot in piedi, rientrerebbero nei 15€/mese che, una sola persona non riuscirebbe a sostenere.
+Nel caso in cui, foste interessati a sostenere mensilmente il creatore, sono già presenti dei tier a partire dai 2€/mese:
 * Bronze 🥉 level 2€ / month
 * Silver 🥈 level 5€ / month
 * Gold 🥇 level 8€ / month
 
 <img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" alt="Buymeacoffee logo" width=100/> - [Buy me a coffee](https://www.buymeacoffee.com/fiorixf2W)
 
-Thanks for your support!
+## Se invece, siete propensi a fare lo stesso per me, vi lascio qui il mio _**Buy Me a Coffee**_ !
+
+In quanto programmatore, graphic designer e sviluppatore di diversi pacchetti di Minecraft, il mio lavoro lo considero equalmente valido e non retribuito, ma libero di essere apprezzato dai singoli, che si imbatteranno un giorno nei miei progetti.
+Se quindi, vi sentite di fare anche a me una piccola donazione, qui sotto troverete il mio link della piattaforma Buy Me a Coffee!
+
+<img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" alt="Buymeacoffee logo" width=100/> - [Buy me a coffee](https://buymeacoffee.com/eklip5e)
+
+Grazie per il supporto e per la lettura!
