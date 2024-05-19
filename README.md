@@ -78,6 +78,8 @@ Se invece, preferite avere un vostro clone, così da poter avere la certezza che
 In questo caso, Piccolo come già accennato prima, è già un clone del [bot ufficiale](https://github.com/FiorixF1/fioriktos-bot).
 Se avete quindi intenzione di creare un bot personale, come Piccolo, vi consiglio vivamente di leggere [la guida](https://github.com/FiorixF1/fioriktos-bot?tab=readme-ov-file#can-i-clone-this-project-and-make-my-custom-version-of-fioriktos) presente sulla repository originale.
 
+### In caso di vari problemi non esitate a contattarmi su Telegram - @Eklip5e
+
 ## Supporta me e il creatore originale!
 
 Sfortunatamente dopo una serie di cambiamenti sulla piattaforma di Heroku, circa Novembre 2022, non è più possibile hostare gratuitamente i vostri progetti, ed Amazon S3 è sempre stato un servizio a pagamento molto salato. 
