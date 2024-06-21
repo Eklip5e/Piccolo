@@ -70,8 +70,8 @@ Come già detto, Piccolo, come Fioriktos, non conserverà l'intero messaggio, ma
 Comunque, ci tengo a dire che, in qualsiasi modo decidessi di usare altri bot, non per forza Fioriktos e simili, devi essere consapevole di star correndo il rischio che il bot possa usare i dati scorrettamente, in quanto datogli l'accesso da **TE** e nessun altro;
 Soprattutto in parecchi casi dove il bot è closed-source, ovvero il codice non è accessibile agli altri e che quindi, non potete mai sapere dove tutti i dati possano andare a finire a meno che non siate voi ad aver programmato il bot e conoscete il suo funzionamento.
 Nessuno può garantirvi al 100% che uno sviluppatore di un programma o di un bot closed-source, possa improvvisamente leggere i vostri messaggi e i vostri dati, o che questi ultimi possano essere hostati in paesi dove è lecito farlo, anche senza il vostro consenso. 
-Visto che questo progetto è open-source, posso solo che dirvi che nei vostri panni posso solo sentirmi più al sicuro.
-Se invece, preferite avere un vostro clone, così da poter avere la certezza che i vostri dati sono solo ed unicamente visibili da voi, ecco a voi la risposta alla prossima domanda:
+Visto che questo progetto è open-source, posso solo che dirvi che nei vostri panni mi sentirei più al sicuro.
+Se invece, preferite avere un vostro clone, così da poter avere la certezza che i vostri dati saranno solo ed unicamente visibili da voi, ecco a voi la risposta alla prossima domanda:
 
 ## Posso clonare Piccolo?
 
